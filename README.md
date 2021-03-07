@@ -15,7 +15,7 @@ Uses the [lm-sensors](https://github.com/lm-sensors/lm-sensors) (linux monitorin
 * Configure _lm-sensors_
   * Run `sensors-detect`
   * Make any [necessary adjustments](https://hwmon.wiki.kernel.org/faq) to the [configuration](https://linux.die.net/man/5/sensors3.conf) in `/etc/sensors3.conf`, using `/etc/sensors.d/*`
-* Download `polybar-lmsensors` binary from TODO
+* Download [`polybar-lmsensors`](https://github.com/mt-inside/polybar-lmsensors/releases/latest/download/polybar-lmsensors_linux_amd64), `chmod 0755`, and enjoy!
   * Or, with the _go_ toolchain installed, build it manually with `go get github.com/mt-inside/polybar-lmsensors`
 
 ## Example

@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  check:
+    name: Build and Publish
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.0'
+
+      - name: Build
+        id: build
+        run: make polybar-lmsensors
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Publish
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./polybar-lmsensors
+          asset_name: polybar-lmsensors_linux_amd64
+          asset_content_type: application/binary

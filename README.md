@@ -22,7 +22,7 @@ Uses the [lm-sensors](https://github.com/lm-sensors/lm-sensors) (linux monitorin
 
 ### Manual Execution
 ```
-$ polybar-lmsensors -t -n -u it8688-isa-0a40/SYS_FAN2=sys k10temp-pci-00c3/Tdie
+$ ./polybar-lmsensors -t -n -u it8688-isa-0a40/SYS_FAN2=sys k10temp-pci-00c3/Tdie
 Fan sys 825/min, Temp Tdie 41°C
 ```
 
@@ -32,5 +32,5 @@ Fan sys 825/min, Temp Tdie 41°C
 type = custom/script
 interval = 2
 format-prefix = " "
-exec = $GOPATH/bin/polybar-lmsensors -u -n -t k10temp-pci-00c3/Tdie it8688-isa-0a40/CPU_FAN=cpu
+exec = path/to/polybar-lmsensors -u -n -t k10temp-pci-00c3/Tdie it8688-isa-0a40/CPU_FAN=cpu
 ```

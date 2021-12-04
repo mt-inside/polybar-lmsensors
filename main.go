@@ -24,7 +24,11 @@ func main() {
 		panic(err)
 	}
 
-	sensors, err := lmsensors.Get(true)
+	if err := lmsensors.Init(); err != nil {
+		panic(err)
+	}
+
+	sensors, err := lmsensors.Get()
 	if err != nil {
 		fmt.Println("Error: ", err)
 		os.Exit(1)
@@ -52,7 +56,7 @@ func main() {
 			label = addrs[1]
 		}
 
-		reading := sensors.ChipsMap[addrs[0]].SensorsMap[addrs[1]]
+		reading := sensors.Chips[addrs[0]].Sensors[addrs[1]]
 		var sb strings.Builder
 		if opts.Type {
 			sb.WriteString(reading.SensorType.String() + " ")
@@ -60,7 +64,7 @@ func main() {
 		if opts.Name {
 			sb.WriteString(label + " ")
 		}
-		sb.WriteString(reading.Value)
+		sb.WriteString(reading.Rendered)
 		if opts.Unit {
 			sb.WriteString(reading.Unit)
 		}

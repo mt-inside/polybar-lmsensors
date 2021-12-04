@@ -11,9 +11,9 @@ github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORN
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
-github.com/mt-inside/go-lmsensors v0.0.2 h1:HNWuPpDXxxGnZQLcVY35sCTZJYnR6+ymnPcWrMRXDr0=
-github.com/mt-inside/go-lmsensors v0.0.2/go.mod h1:xW/y0ThZrYCcDcR7XThgE1MkRfEyZMtF0JnplU6ORFE=
-github.com/mt-inside/go-usvc v0.0.1/go.mod h1:vByX1w+t5I/jKeH6UnYkdc3u54gwItIPwstQK09ipn0=
+github.com/mt-inside/go-lmsensors v0.0.3 h1:bevKKCgQHW5qIY6rWtwWVNC/OxPF/tg2FmJH68NL0Pc=
+github.com/mt-inside/go-lmsensors v0.0.3/go.mod h1:LReO2RCiAqZ5lx0Ox7IGNnc8A/Vb1sqAerIf21zw08o=
+github.com/mt-inside/go-usvc v0.0.2/go.mod h1:vByX1w+t5I/jKeH6UnYkdc3u54gwItIPwstQK09ipn0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

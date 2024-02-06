@@ -19,7 +19,7 @@ func main() {
 		// TODO: implement
 		Fans bool `short:"f" long:"fans" description:"Print all non-zero-speed fans (ignores positional arguments)"`
 	}
-	args, err := flags.ParseArgs(&opts, os.Args)
+	args, err := flags.Parse(&opts)
 	if err != nil {
 		panic(err)
 	}
@@ -35,7 +35,7 @@ func main() {
 	}
 
 	output := []string{}
-	for _, arg := range args[1:] {
+	for _, arg := range args {
 		var label string
 
 		labels := strings.Split(arg, "=")

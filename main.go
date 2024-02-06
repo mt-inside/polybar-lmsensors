@@ -12,13 +12,10 @@ import (
 
 func main() {
 	var opts struct {
-		Type bool `short:"t" long:"type" description:"Print the type of the sensor"`
-		// TODO: lookup go-lmsensor's "sensorType" and translate to , , etc
+		Type       bool `short:"t" long:"type" description:"Print the type of the sensor"`
 		TypeSymbol bool `short:"T" long:"type-symbol" description:"Print the type of the sensor, as a unicode symbol (font-dependant)"`
 		Unit       bool `short:"u" long:"unit" description:"Print the unit of the reading"`
 		Name       bool `short:"n" long:"name" description:"Print the name of the sensor"`
-		// TODO: implement
-		Fans bool `short:"f" long:"fans" description:"Print all non-zero-speed fans (ignores positional arguments)"`
 	}
 	args, err := flags.Parse(&opts)
 	if err != nil {
@@ -64,15 +61,36 @@ func main() {
 		}
 
 		var sb strings.Builder
+		if opts.TypeSymbol {
+			switch reading.(type) {
+			case *lmsensors.TempSensor:
+				sb.WriteString(" ")
+			case *lmsensors.FanSensor:
+				sb.WriteString(" ")
+			case *lmsensors.VoltageSensor:
+				sb.WriteString("⚡ ")
+			default:
+				sb.WriteString("TODO ")
+			}
+		}
 		if opts.Type {
-			sb.WriteString(reading.SensorType.String() + " ")
+			switch reading.(type) {
+			case *lmsensors.TempSensor:
+				sb.WriteString("temp ")
+			case *lmsensors.FanSensor:
+				sb.WriteString("fan ")
+			case *lmsensors.VoltageSensor:
+				sb.WriteString("volt ")
+			default:
+				sb.WriteString("TODO ")
+			}
 		}
 		if opts.Name {
 			sb.WriteString(label + " ")
 		}
-		sb.WriteString(reading.Rendered)
+		sb.WriteString(reading.Rendered())
 		if opts.Unit {
-			sb.WriteString(reading.Unit)
+			sb.WriteString(reading.Unit())
 		}
 
 		output = append(output, sb.String())

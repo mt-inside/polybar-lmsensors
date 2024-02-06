@@ -57,6 +57,11 @@ func main() {
 		}
 
 		reading := sensors.Chips[addrs[0]].Sensors[addrs[1]]
+		if reading == nil {
+			fmt.Println("Error: can't find Sensor")
+			os.Exit(1)
+		}
+
 		var sb strings.Builder
 		if opts.Type {
 			sb.WriteString(reading.SensorType.String() + " ")

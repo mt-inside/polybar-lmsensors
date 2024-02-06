@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/jessevdk/go-flags"
+
 	"github.com/mt-inside/go-lmsensors"
 )
 

@@ -3,7 +3,7 @@ generate:
 
 lint: generate
 	gofmt -s -w .
-	goimports -local github.com/mt-inside/http-log -w .
+	goimports -local github.com/mt-inside/polybar-lmsensors -w .
 	go vet ./...
 	staticcheck ./...
 	golangci-lint run ./... # TODO: --enable-all
